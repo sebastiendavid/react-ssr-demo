@@ -8,6 +8,11 @@ import Info from './app/info';
 import pkg from '../package.json';
 
 const server = express();
+const version = Object.keys(pkg.dependencies).reduce(
+  (map, key) =>
+    Object.assign(map, { [key]: pkg.dependencies[key].replace(/~|^/, '') }),
+  {}
+);
 
 server.use('/static', express.static(path.resolve('./dist/static')));
 
@@ -19,6 +24,7 @@ server.get('/', (req, res) => {
       title: 'React SSR demo',
       initialState: JSON.stringify(initialState),
       isProd: process.env.NODE_ENV === 'production',
+      version,
     })
   );
 });
