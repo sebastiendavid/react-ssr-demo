@@ -1,4 +1,5 @@
 module.exports = ({ body, title, initialState, isProd }) => {
+  const cdnjs = '//cdnjs.cloudflare.com/ajax/libs';
   const min = isProd ? '.min' : '';
   return `
     <!DOCTYPE html>
@@ -7,8 +8,8 @@ module.exports = ({ body, title, initialState, isProd }) => {
         <script>window.__APP_INITIAL_STATE__ = ${initialState}</script>
         <title>${title}</title>
         <link rel="stylesheet" href="/static/index.css" />
-        <script src="//cdn.jsdelivr.net/react/15.5.4/react${min}.js"></script>
-        <script src="//cdn.jsdelivr.net/react/15.5.4/react-dom${min}.js"></script>
+        <script src="${cdnjs}/react/15.6.1/react${min}.js"></script>
+        <script src="${cdnjs}/react/15.6.1/react-dom${min}.js"></script>
       </head>
 
       <body>
