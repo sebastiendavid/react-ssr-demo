@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
-const BabiliPlugin = require('babili-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const isProd = process.env.NODE_ENV === 'production';
@@ -66,7 +66,7 @@ const plugins = {
     }),
   ],
   dev: [],
-  prod: [new BabiliPlugin()],
+  prod: [new UglifyJSPlugin({ sourceMap: true })],
 };
 
 module.exports = [

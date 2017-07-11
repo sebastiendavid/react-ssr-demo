@@ -15,6 +15,10 @@
   },
   "author": "Sébastien David",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sebastiendavid/react-ssr-demo.git"
+  },
   "dependencies": {
     "express": "~4.15.3",
     "react": "~15.6.1",
@@ -25,12 +29,13 @@
     "babel-loader": "~7.1.1",
     "babel-preset-env": "~1.6.0",
     "babel-preset-react": "~6.24.1",
-    "babili-webpack-plugin": "~0.1.2",
     "css-loader": "~0.28.4",
     "extract-text-webpack-plugin": "~3.0.0-rc.2",
     "json-loader": "~0.5.4",
     "prettier": "~1.5.2",
     "style-loader": "~0.18.2",
+    "uglify-es": "~3.0.24",
+    "uglifyjs-webpack-plugin": "~1.0.0-beta.1",
     "webpack": "~3.1.0",
     "webpack-node-externals": "~1.6.0"
   }

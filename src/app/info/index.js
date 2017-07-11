@@ -8,6 +8,7 @@ export default class Info extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.error('yolo');
     if (nextProps.info !== this.props.info) {
       this.setState({ clear: false });
     }
