@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 import App from './';
 
-render(
+hydrate(
   <App {...window.__APP_INITIAL_STATE__} />,
   document.getElementById('root')
 );

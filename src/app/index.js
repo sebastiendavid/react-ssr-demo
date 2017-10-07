@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 import './index.css';
 import Info from './info';
 
@@ -12,7 +12,7 @@ export default class Main extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.info && this.state.info !== prevState.info) {
-      render(<Info {...this.state.info.state} />, this.infoElem);
+      hydrate(<Info {...this.state.info.state} />, this.infoElem);
     }
   }
 
@@ -28,9 +28,7 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        <h1>
-          {this.props.message}
-        </h1>
+        <h1>{this.props.message}</h1>
         <div>
           <button onClick={this.onFetchInfo}>Fetch info</button>
           <div

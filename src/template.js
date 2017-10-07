@@ -1,6 +1,6 @@
 module.exports = ({ body, title, initialState, isProd, version }) => {
-  const cdnjs = '//cdnjs.cloudflare.com/ajax/libs';
-  const min = isProd ? '.min' : '';
+  const cdn = '//cdn.jsdelivr.net/npm';
+  const min = isProd ? '.production.min' : '.development';
   return `
     <!DOCTYPE html>
     <html>
@@ -8,8 +8,8 @@ module.exports = ({ body, title, initialState, isProd, version }) => {
         <script>window.__APP_INITIAL_STATE__ = ${initialState}</script>
         <title>${title}</title>
         <link rel="stylesheet" href="/static/index.css" />
-        <script src="${cdnjs}/react/${version.react}/react${min}.js"></script>
-        <script src="${cdnjs}/react/${version.react}/react-dom${min}.js"></script>
+        <script src="${cdn}/react@${version.react}/umd/react${min}.js"></script>
+        <script src="${cdn}/react-dom@${version.react}/umd/react-dom${min}.js"></script>
       </head>
 
       <body>

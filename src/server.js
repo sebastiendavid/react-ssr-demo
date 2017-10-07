@@ -7,6 +7,7 @@ import App from './app';
 import Info from './app/info';
 import pkg from '../package.json';
 
+const isProd = process.env.NODE_ENV === 'production';
 const server = express();
 const version = Object.keys(pkg.dependencies).reduce(
   (map, key) =>
@@ -23,7 +24,7 @@ server.get('/', (req, res) => {
       body: renderToString(<App {...initialState} />),
       title: 'React SSR demo',
       initialState: JSON.stringify(initialState),
-      isProd: process.env.NODE_ENV === 'production',
+      isProd,
       version,
     })
   );
@@ -37,4 +38,4 @@ server.get('/info', (req, res) => {
 });
 
 server.listen(8080);
-console.log('listening to 8080');
+console.log('http://localhost:8080');
